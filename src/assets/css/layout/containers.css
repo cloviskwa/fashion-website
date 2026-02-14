@@ -1,0 +1,252 @@
+/* ============================================
+   CONTAINER SYSTEM
+   Responsive containers with consistent padding
+   Building on variables.css
+   ============================================ */
+
+/* Base Container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Container Max Widths */
+.container-sm {
+  max-width: 640px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.container-xl {
+  max-width: 1280px;
+}
+
+.container-2xl {
+  max-width: 1536px;
+}
+
+.container-full {
+  max-width: none;
+}
+
+/* Container with no padding */
+.container-fluid {
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Nested containers - remove padding on children */
+.container .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Container with background that extends full width */
+.container-bleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Container with max-width and centered */
+.container-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Container with left alignment */
+.container-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Container with right alignment */
+.container-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Container with fixed width at breakpoints */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Container with dynamic max-width based on content */
+.container-content {
+  max-width: min(100% - var(--container-padding) * 2, var(--max-width-content));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Container for readable text (narrower) */
+.container-readable {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Container for hero sections (full width with content constraint) */
+.container-hero {
+  width: 100%;
+  position: relative;
+}
+
+.container-hero .container-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Container with split background */
+.container-split {
+  position: relative;
+  isolation: isolate;
+}
+
+.container-split::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: -1;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Container padding variations */
+.container-padding-sm {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container-padding-md {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+
+.container-padding-lg {
+  padding-left: var(--space-12);
+  padding-right: var(--space-12);
+}
+
+.container-padding-xl {
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
+}
+
+/* Container with gutter */
+.container-gutter {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-gutter-sm {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container-gutter-lg {
+  padding-left: var(--space-12);
+  padding-right: var(--space-12);
+}
+
+/* Nested container adjustments */
+.container-nested {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Container with inset shadow for depth */
+.container-inset {
+  box-shadow: inset 0 0 0 1px var(--neutral-200);
+  border-radius: var(--radius-xl);
+}
+
+/* Container with border */
+.container-bordered {
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-xl);
+  background: white;
+}
+
+/* Container with glass effect */
+.container-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+}
+
+/* Container with gradient background */
+.container-gradient {
+  background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
+  border-radius: var(--radius-2xl);
+}
+
+/* Responsive container adjustments */
+@media (max-width: 640px) {
+  .container-padding-lg,
+  .container-padding-xl {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  
+  .container-gutter-lg {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+}

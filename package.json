@@ -1,8 +1,47 @@
 {
-  "name": "fashion-website",
+  "name": "lipek-fashion",
   "version": "1.0.0",
-  "private": true,
+  "description": "Lipek Fashion - Premium Tailoring Website",
   "scripts": {
-    "build": "node tools/build.js"
+    "dev": "node tools/serve.js",
+    "build": "node tools/build.js",
+    "vercel-build": "npm run build"
+  },
+  "devDependencies": {
+    "sass": "^1.62.0",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^8.0.0",
+    "imagemin-webp": "^7.0.0"
+  }
+}
+
+// Capacitor for ios
+"scripts": {
+    "build": "node build.js",
+    "build:android": "npm run build && npx cap copy && npx cap open android",
+    "build:ios": "npm run build && npx cap copy && npx cap open ios"
+}
+
+# Folder structure becomes:
+lipek-fashion/
+├── public/          # Your built website
+├── android/         # Android app project (auto-generated)
+├── ios/            # iOS app project (auto-generated)
+└── capacitor.config.json  # App configuration
+
+{
+  "scripts": {
+    "build:css": "node tools/build-css.js",
+    "watch:css": "nodemon -e scss -x 'npm run build:css'",
+    "dev": "concurrently \"npm run watch:css\" \"npm run serve\""
+  },
+  "devDependencies": {
+    "sass": "^1.62.0",
+    "postcss": "^8.4.21",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.0",
+    "fs-extra": "^11.1.1",
+    "nodemon": "^2.0.22",
+    "concurrently": "^8.0.1"
   }
 }
