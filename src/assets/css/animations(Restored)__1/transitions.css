@@ -1,0 +1,739 @@
+/* ============================================
+   TRANSITION PRESETS
+   Smooth, Consistent, Performant
+   ============================================ */
+
+/* --------------------------------------------
+   BASE TRANSITION CLASSES
+   -------------------------------------------- */
+
+.transition-all {
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.transition-opacity {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.transition-transform {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.transition-colors {
+  transition: background-color var(--duration-base) var(--ease-out),
+              color var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
+}
+
+.transition-shadow {
+  transition: box-shadow var(--duration-base) var(--ease-out);
+}
+
+.transition-filter {
+  transition: filter var(--duration-base) var(--ease-out);
+}
+
+.transition-width {
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.transition-height {
+  transition: height var(--duration-base) var(--ease-out);
+}
+
+.transition-spacing {
+  transition: margin var(--duration-base) var(--ease-out),
+              padding var(--duration-base) var(--ease-out);
+}
+
+/* --------------------------------------------
+   DURATION VARIANTS
+   -------------------------------------------- */
+
+.duration-instant {
+  transition-duration: var(--duration-instant);
+}
+
+.duration-fast {
+  transition-duration: var(--duration-fast);
+}
+
+.duration-base {
+  transition-duration: var(--duration-base);
+}
+
+.duration-slow {
+  transition-duration: var(--duration-slow);
+}
+
+.duration-slower {
+  transition-duration: var(--duration-slower);
+}
+
+.duration-slowest {
+  transition-duration: var(--duration-slowest);
+}
+
+/* --------------------------------------------
+   EASING VARIANTS
+   -------------------------------------------- */
+
+.ease-linear {
+  transition-timing-function: var(--ease-linear);
+}
+
+.ease-in {
+  transition-timing-function: var(--ease-in);
+}
+
+.ease-out {
+  transition-timing-function: var(--ease-out);
+}
+
+.ease-in-out {
+  transition-timing-function: var(--ease-in-out);
+}
+
+.ease-bounce {
+  transition-timing-function: var(--ease-bounce);
+}
+
+.ease-soft {
+  transition-timing-function: var(--ease-soft);
+}
+
+/* --------------------------------------------
+   DELAY VARIANTS
+   -------------------------------------------- */
+
+.delay-0 {
+  transition-delay: 0ms;
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+.delay-700 {
+  transition-delay: 700ms;
+}
+
+.delay-1000 {
+  transition-delay: 1000ms;
+}
+
+/* --------------------------------------------
+   HOVER TRANSITIONS
+   -------------------------------------------- */
+
+.hover-lift {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-lift-lg:hover {
+  transform: translateY(-8px);
+}
+
+.hover-scale {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale-lg:hover {
+  transform: scale(1.1);
+}
+
+.hover-shadow {
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hover-shadow:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-shadow-xl:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.hover-glow {
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-primary);
+}
+
+.hover-glow-secondary:hover {
+  box-shadow: var(--shadow-secondary);
+}
+
+.hover-border {
+  transition: border-color var(--duration-fast) var(--ease-out);
+  border: 2px solid transparent;
+}
+
+.hover-border:hover {
+  border-color: var(--primary-500);
+}
+
+.hover-opacity {
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.hover-opacity:hover {
+  opacity: 0.8;
+}
+
+.hover-rotate {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+.hover-rotate-lg:hover {
+  transform: rotate(10deg);
+}
+
+/* --------------------------------------------
+   FOCUS TRANSITIONS
+   -------------------------------------------- */
+
+.focus-glow:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 171, 218, 0.3);
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.focus-scale:focus {
+  transform: scale(1.02);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+/* --------------------------------------------
+   ACTIVE TRANSITIONS
+   -------------------------------------------- */
+
+.active-press:active {
+  transform: scale(0.98);
+  transition: transform var(--duration-instant) var(--ease-out);
+}
+
+/* --------------------------------------------
+   PAGE TRANSITIONS
+   -------------------------------------------- */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--duration-slow) var(--ease-soft);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--duration-slow) var(--ease-soft);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* --------------------------------------------
+   MODAL TRANSITIONS
+   -------------------------------------------- */
+
+.modal-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.modal-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all var(--duration-base) var(--ease-soft);
+}
+
+.modal-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all var(--duration-base) var(--ease-soft);
+}
+
+/* --------------------------------------------
+   DRAWER TRANSITIONS
+   -------------------------------------------- */
+
+.drawer-transition-enter {
+  transform: translateX(100%);
+}
+
+.drawer-transition-enter-active {
+  transform: translateX(0);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.drawer-transition-exit {
+  transform: translateX(0);
+}
+
+.drawer-transition-exit-active {
+  transform: translateX(100%);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.drawer-left-enter {
+  transform: translateX(-100%);
+}
+
+.drawer-left-enter-active {
+  transform: translateX(0);
+}
+
+.drawer-left-exit-active {
+  transform: translateX(-100%);
+}
+
+/* --------------------------------------------
+   MENU TRANSITIONS
+   -------------------------------------------- */
+
+.menu-transition-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.menu-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.menu-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+/* --------------------------------------------
+   ACCORDION TRANSITIONS
+   -------------------------------------------- */
+
+.accordion-transition-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-transition-enter-active {
+  max-height: 500px;
+  opacity: 1;
+  transition: all var(--duration-slow) var(--ease-soft);
+}
+
+.accordion-transition-exit {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.accordion-transition-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all var(--duration-slow) var(--ease-soft);
+}
+
+/* --------------------------------------------
+   TOAST TRANSITIONS
+   -------------------------------------------- */
+
+.toast-transition-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.toast-transition-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all var(--duration-base) var(--ease-soft);
+}
+
+.toast-transition-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast-transition-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all var(--duration-base) var(--ease-soft);
+}
+
+/* --------------------------------------------
+   TOOLTIP TRANSITIONS
+   -------------------------------------------- */
+
+.tooltip-transition-enter {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.tooltip-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.tooltip-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-transition-exit-active {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+/* --------------------------------------------
+   TAB TRANSITIONS
+   -------------------------------------------- */
+
+.tab-transition-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.tab-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.tab-transition-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tab-transition-exit-active {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+/* --------------------------------------------
+   CARD TRANSITIONS
+   -------------------------------------------- */
+
+.card-transition {
+  transition: transform var(--duration-slow) var(--ease-soft),
+              box-shadow var(--duration-slow) var(--ease-soft),
+              border-color var(--duration-slow) var(--ease-soft);
+}
+
+.card-transition:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-200);
+}
+
+/* --------------------------------------------
+   BUTTON TRANSITIONS
+   -------------------------------------------- */
+
+.btn-transition {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.btn-transition:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-transition:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------
+   INPUT TRANSITIONS
+   -------------------------------------------- */
+
+.input-transition {
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.input-transition:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(13, 171, 218, 0.1);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------
+   IMAGE TRANSITIONS
+   -------------------------------------------- */
+
+.image-transition {
+  overflow: hidden;
+}
+
+.image-transition img {
+  transition: transform var(--duration-slow) var(--ease-soft);
+}
+
+.image-transition:hover img {
+  transform: scale(1.05);
+}
+
+.image-zoom img {
+  transition: transform var(--duration-slow) var(--ease-soft);
+}
+
+.image-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* --------------------------------------------
+   LINK TRANSITIONS
+   -------------------------------------------- */
+
+.link-transition {
+  position: relative;
+}
+
+.link-transition::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-500);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.link-transition:hover::after {
+  width: 100%;
+}
+
+.link-underline {
+  background: linear-gradient(to right, var(--primary-500), var(--primary-500));
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--duration-base) var(--ease-out);
+}
+
+.link-underline:hover {
+  background-size: 100% 2px;
+}
+
+/* --------------------------------------------
+   LOADING TRANSITIONS
+   -------------------------------------------- */
+
+.loading-fade {
+  animation: loadingPulse 1.5s infinite;
+}
+
+.loading-wave {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-wave span {
+  width: 8px;
+  height: 20px;
+  background: var(--primary-500);
+  border-radius: var(--radius-full);
+  animation: loadingWave 1s infinite;
+}
+
+.loading-wave span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-wave span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loading-wave span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.loading-wave span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* --------------------------------------------
+   SKELETON LOADING
+   -------------------------------------------- */
+
+.skeleton {
+  background: linear-gradient(90deg, 
+    var(--neutral-200) 25%, 
+    var(--neutral-300) 50%, 
+    var(--neutral-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: loadingShimmer 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 1em;
+  border-radius: var(--radius-base);
+}
+
+.skeleton-title {
+  height: 2em;
+  width: 60%;
+  border-radius: var(--radius-base);
+}
+
+.skeleton-image {
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-lg);
+}
+
+.skeleton-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------
+   COUNTDOWN TRANSITIONS
+   -------------------------------------------- */
+
+.countdown-number {
+  animation: countdown 1s infinite;
+}
+
+/* --------------------------------------------
+   SUCCESS/ERROR TRANSITIONS
+   -------------------------------------------- */
+
+.success-check {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck 0.5s forwards;
+}
+
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.error-x {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawX 0.5s forwards;
+}
+
+@keyframes drawX {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --------------------------------------------
+   MOBILE OPTIMIZATIONS
+   -------------------------------------------- */
+
+@media (max-width: 768px) {
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-shadow:hover,
+  .hover-glow:hover,
+  .hover-border:hover,
+  .hover-rotate:hover,
+  .card-transition:hover,
+  .btn-transition:hover,
+  .image-transition:hover img {
+    transform: none;
+    box-shadow: none;
+    border-color: initial;
+  }
+  
+  .link-transition::after {
+    display: none;
+  }
+}
+
+/* --------------------------------------------
+   REDUCED MOTION
+   -------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-all,
+  .transition-opacity,
+  .transition-transform,
+  .transition-colors,
+  .transition-shadow,
+  .transition-filter,
+  .transition-width,
+  .transition-height,
+  .transition-spacing,
+  .hover-lift,
+  .hover-scale,
+  .hover-shadow,
+  .hover-glow,
+  .hover-border,
+  .hover-opacity,
+  .hover-rotate,
+  .btn-transition,
+  .input-transition,
+  .image-transition img,
+  .link-transition::after,
+  .loading-fade,
+  .loading-wave span,
+  .skeleton {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .skeleton {
+    background: var(--neutral-200);
+  }
+}

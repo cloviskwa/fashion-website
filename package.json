@@ -1,47 +1,91 @@
 {
   "name": "lipek-fashion",
   "version": "1.0.0",
-  "description": "Lipek Fashion - Premium Tailoring Website",
+  "description": "Lipek Fashion - Premium Custom Tailoring & African Fashion in Houston, Texas",
+  "main": "tools/build.js",
   "scripts": {
     "dev": "node tools/serve.js",
     "build": "node tools/build.js",
-    "vercel-build": "npm run build"
-  },
-  "devDependencies": {
-    "sass": "^1.62.0",
-    "html-minifier": "^4.0.0",
-    "imagemin": "^8.0.0",
-    "imagemin-webp": "^7.0.0"
-  }
-}
-
-// Capacitor for ios
-"scripts": {
-    "build": "node build.js",
-    "build:android": "npm run build && npx cap copy && npx cap open android",
-    "build:ios": "npm run build && npx cap copy && npx cap open ios"
-}
-
-# Folder structure becomes:
-lipek-fashion/
-├── public/          # Your built website
-├── android/         # Android app project (auto-generated)
-├── ios/            # iOS app project (auto-generated)
-└── capacitor.config.json  # App configuration
-
-{
-  "scripts": {
     "build:css": "node tools/build-css.js",
-    "watch:css": "nodemon -e scss -x 'npm run build:css'",
-    "dev": "concurrently \"npm run watch:css\" \"npm run serve\""
+    "build:js": "node tools/build-js.js",
+    "build:images": "node tools/optimize-images.js",
+    "build:pwa": "node tools/generate-icons.js",
+    "build:sitemap": "node tools/generate-sitemap.js",
+    "process-includes": "node tools/process-includes.js",
+    "minify-html": "node tools/minify-html.js",
+    "validate-seo": "node tools/validate-seo.js",
+    "watch": "nodemon -e html,css,js,scss -x 'npm run build'",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint src && stylelint src",
+    "test:unit": "jest",
+    "test:e2e": "cypress run",
+    "deploy": "npm run build && node tools/deploy.js",
+    "analyze": "npm run build && lighthouse public/ --view"
+  },
+  "keywords": [
+    "fashion",
+    "tailoring",
+    "african-fashion",
+    "custom-tailoring",
+    "alterations",
+    "laundry",
+    "houston",
+    "texas",
+    "pwa",
+    "ecommerce"
+  ],
+  "author": "Lipek Fashion LLC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lipek/lipek-fashion.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lipek/lipek-fashion.com/issues"
+  },
+  "homepage": "https://lipekfashion.com",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "dependencies": {
+    "swiper": "^9.4.1",
+    "aos": "^2.3.4",
+    "gsap": "^3.12.2",
+    "lazysizes": "^5.3.2",
+    "fuse.js": "^6.6.2",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "sass": "^1.62.0",
     "postcss": "^8.4.21",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.0",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^8.0.0",
+    "imagemin-webp": "^7.0.0",
+    "imagemin-avif": "^0.1.0",
+    "sharp": "^0.32.1",
+    "terser": "^5.16.1",
     "fs-extra": "^11.1.1",
+    "glob": "^10.2.2",
+    "chokidar": "^3.5.3",
     "nodemon": "^2.0.22",
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "express": "^4.18.2",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "stylelint": "^15.6.0",
+    "stylelint-config-standard": "^33.0.0",
+    "jest": "^29.5.0",
+    "cypress": "^12.11.0",
+    "lighthouse": "^10.1.1"
   }
 }

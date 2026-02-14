@@ -1,0 +1,207 @@
+/* ============================================
+   TAB COMPONENTS
+   Swipeable, Accessible, Modern
+   ============================================ */
+
+/* Base Tabs */
+.tabs {
+  width: 100%;
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--neutral-200);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  gap: var(--space-1);
+}
+
+.tabs-header::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  padding: var(--space-4) var(--space-6);
+  background: transparent;
+  border: none;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--neutral-600);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  position: relative;
+  white-space: nowrap;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-500);
+  transform: scaleX(0);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.tab-btn:hover {
+  color: var(--neutral-900);
+}
+
+.tab-btn.active {
+  color: var(--primary-500);
+  font-weight: var(--weight-semi-bold);
+}
+
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-panel {
+  display: none;
+  padding: var(--space-6);
+  animation: tabFadeIn var(--duration-base) var(--ease-out);
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pills Tabs */
+.tabs-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.tab-pill {
+  padding: var(--space-3) var(--space-6);
+  background: var(--neutral-200);
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  border: 1px solid transparent;
+}
+
+.tab-pill:hover {
+  background: var(--neutral-300);
+  transform: translateY(-2px);
+}
+
+.tab-pill.active {
+  background: var(--primary-500);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+
+.tab-pill.active:hover {
+  background: var(--primary-600);
+}
+
+/* Vertical Tabs */
+.tabs-vertical {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.tabs-vertical .tabs-header {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 2px solid var(--neutral-200);
+  min-width: 200px;
+}
+
+.tabs-vertical .tab-btn {
+  text-align: left;
+  padding: var(--space-4);
+}
+
+.tabs-vertical .tab-btn::after {
+  bottom: 0;
+  left: auto;
+  right: -2px;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+}
+
+.tabs-vertical .tab-btn.active::after {
+  transform: scaleY(1);
+}
+
+.tabs-vertical .tab-panel {
+  flex: 1;
+}
+
+/* Icon Tabs */
+.tabs-icon .tab-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.tabs-icon .tab-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Scroll Tabs */
+.tabs-scroll {
+  position: relative;
+}
+
+.tabs-scroll .tabs-header {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-2);
+}
+
+.tabs-scroll .tab-btn {
+  scroll-snap-align: start;
+}
+
+/* Swipeable Tabs (Mobile) */
+@media (max-width: 640px) {
+  .tabs-swipe {
+    overflow: hidden;
+  }
+  
+  .tabs-swipe .tabs-panels {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tabs-swipe .tab-panel {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: var(--space-4);
+  }
+  
+  .tabs-swipe .tabs-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: white;
+  }
+}

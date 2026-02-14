@@ -1,0 +1,590 @@
+/* ============================================
+   PRINT STYLES
+   Optimized for printing
+   Building on all previous code
+   ============================================ */
+
+@media print {
+  /* --------------------------------------------
+     RESET & BASE
+     -------------------------------------------- */
+  
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Force white backgrounds for printing */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+  }
+  
+  /* --------------------------------------------
+     PAGE SETUP
+     -------------------------------------------- */
+  
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+  
+  @page :first {
+    margin-top: 3cm;
+  }
+  
+  /* Ensure content fits on page */
+  .container,
+  .container-fluid,
+  .section {
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100%;
+  }
+  
+  /* --------------------------------------------
+     TYPOGRAPHY
+     -------------------------------------------- */
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    color: black !important;
+    margin-top: 0.5cm;
+    margin-bottom: 0.3cm;
+  }
+  
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 18pt;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.2cm;
+  }
+  
+  h3 {
+    font-size: 14pt;
+  }
+  
+  p {
+    orphans: 3;
+    widows: 3;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+    word-wrap: break-word;
+  }
+  
+  /* Don't show href for internal links */
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+  
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  
+  /* --------------------------------------------
+     LINKS & NAVIGATION (HIDE)
+     -------------------------------------------- */
+  
+  .header,
+  .header-mobile,
+  .header-bottom-nav,
+  .nav-desktop,
+  .nav-mobile,
+  .dropdown-menu,
+  .mega-menu,
+  .breadcrumbs,
+  .footer,
+  .sidebar,
+  .back-to-top,
+  .progress-bar,
+  .scroll-indicator,
+  .carousel-btn,
+  .carousel-dots,
+  .modal-overlay,
+  .drawer,
+  .popover,
+  .tooltip,
+  .cookie-consent,
+  .chat-widget,
+  .newsletter-popup {
+    display: none !important;
+  }
+  
+  /* --------------------------------------------
+     CARDS & CONTAINERS
+     -------------------------------------------- */
+  
+  .card,
+  .service-card,
+  .product-card,
+  .testimonial-card,
+  .team-card,
+  .blog-card,
+  .pricing-card {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.5cm;
+    padding: 0.5cm;
+  }
+  
+  .card-image,
+  .product-image,
+  .blog-image {
+    max-width: 50%;
+    margin: 0 auto 0.5cm;
+  }
+  
+  .card-image img,
+  .product-image img,
+  .blog-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* --------------------------------------------
+     TABLES
+     -------------------------------------------- */
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.5cm 0;
+    page-break-inside: avoid;
+  }
+  
+  th {
+    background: #f0f0f0 !important;
+    color: black !important;
+    font-weight: bold;
+    border: 1px solid #999;
+    padding: 0.2cm;
+  }
+  
+  td {
+    border: 1px solid #ccc;
+    padding: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     FORMS
+     -------------------------------------------- */
+  
+  input,
+  textarea,
+  select,
+  button {
+    border: 1px solid #999 !important;
+    background: white !important;
+    color: black !important;
+    padding: 0.2cm;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    border: 1px solid #999 !important;
+    background: white !important;
+  }
+  
+  .form-check-input {
+    border: 1px solid #999 !important;
+  }
+  
+  .form-check-input:checked {
+    background: black !important;
+  }
+  
+  /* --------------------------------------------
+     IMAGES
+     -------------------------------------------- */
+  
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure images don't break across pages */
+  figure {
+    page-break-inside: avoid;
+    margin: 0.5cm 0;
+  }
+  
+  figcaption {
+    font-size: 10pt;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  /* --------------------------------------------
+     QR CODES (if any)
+     -------------------------------------------- */
+  
+  .qr-code {
+    display: block !important;
+    margin: 0.5cm auto;
+    max-width: 3cm;
+  }
+  
+  /* --------------------------------------------
+     BOOKING CONFIRMATION
+     -------------------------------------------- */
+  
+  .booking-confirmation {
+    display: block !important;
+    border: 2px solid #000;
+    padding: 0.5cm;
+    margin: 0.5cm 0;
+  }
+  
+  .booking-summary {
+    border: 1px solid #ccc;
+    padding: 0.3cm;
+    margin: 0.3cm 0;
+  }
+  
+  .booking-reference {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 0.3cm 0;
+    padding: 0.2cm;
+    border: 2px dashed #000;
+  }
+  
+  /* --------------------------------------------
+     INVOICES & RECEIPTS
+     -------------------------------------------- */
+  
+  .invoice,
+  .receipt {
+    display: block !important;
+    max-width: 100%;
+  }
+  
+  .invoice-header,
+  .receipt-header {
+    text-align: center;
+    margin-bottom: 0.5cm;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.3cm;
+  }
+  
+  .invoice-items,
+  .receipt-items {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .invoice-total,
+  .receipt-total {
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 0.3cm;
+    border-top: 2px solid #000;
+    padding-top: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     GALLERY & PORTFOLIO
+     -------------------------------------------- */
+  
+  .gallery-grid,
+  .gallery-masonry-view {
+    display: block !important;
+  }
+  
+  .gallery-grid-item,
+  .gallery-masonry-item {
+    display: inline-block;
+    width: 45%;
+    margin: 0.2cm;
+    page-break-inside: avoid;
+  }
+  
+  /* --------------------------------------------
+     BLOG POSTS
+     -------------------------------------------- */
+  
+  .blog-post {
+    max-width: 100%;
+  }
+  
+  .blog-post-content {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  
+  .blog-post-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    padding: 0.3cm;
+    background: #f9f9f9 !important;
+  }
+  
+  .blog-post-content blockquote {
+    border-left: 3px solid #999;
+    padding-left: 0.5cm;
+    margin: 0.3cm 0;
+    font-style: italic;
+  }
+  
+  /* --------------------------------------------
+     LEGAL DOCUMENTS
+     -------------------------------------------- */
+  
+  .legal-content {
+    font-size: 11pt;
+  }
+  
+  .legal-section {
+    margin-bottom: 0.5cm;
+  }
+  
+  .legal-section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 0.3cm;
+  }
+  
+  /* --------------------------------------------
+     CODE BLOCKS
+     -------------------------------------------- */
+  
+  pre,
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #f9f9f9 !important;
+    border: 1px solid #ccc;
+    padding: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     PAGE BREAKS
+     -------------------------------------------- */
+  
+  .page-break {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+  
+  .no-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Avoid breaking inside these elements */
+  tr,
+  li,
+  blockquote,
+  pre,
+  .card,
+  .pricing-card,
+  .testimonial-card,
+  .team-card {
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure headers don't sit at bottom of page */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  /* Ensure images don't break */
+  img {
+    page-break-inside: avoid;
+  }
+  
+  /* --------------------------------------------
+     PRINT BUTTONS & ACTIONS
+     -------------------------------------------- */
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-hide {
+    display: none !important;
+  }
+  
+  .print-show {
+    display: block !important;
+  }
+  
+  /* Print-specific buttons */
+  .print-button {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 0.2cm 0.5cm;
+    text-decoration: none;
+    color: black;
+    margin: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     URL DISPLAY
+     -------------------------------------------- */
+  
+  .website-url {
+    font-size: 10pt;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5cm;
+    border-top: 1px solid #ccc;
+    padding-top: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     DATE AND TIME
+     -------------------------------------------- */
+  
+  .print-date {
+    font-size: 10pt;
+    color: #666;
+    text-align: right;
+    margin-bottom: 0.2cm;
+  }
+  
+  /* --------------------------------------------
+     SIGNATURE LINES
+     -------------------------------------------- */
+  
+  .signature-line {
+    border-top: 1px solid #000;
+    width: 50%;
+    margin: 0.5cm 0 0.2cm;
+  }
+  
+  .signature-date {
+    font-size: 10pt;
+    color: #666;
+  }
+  
+  /* --------------------------------------------
+     WATERMARK
+     -------------------------------------------- */
+  
+  .print-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 60pt;
+    opacity: 0.1;
+    color: #999;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  /* --------------------------------------------
+     RESPONSIVE PRINT ADJUSTMENTS
+     -------------------------------------------- */
+  
+  @media (max-width: 768px) {
+    @page {
+      margin: 1.5cm;
+    }
+    
+    body {
+      font-size: 11pt;
+    }
+    
+    h1 {
+      font-size: 20pt;
+    }
+    
+    h2 {
+      font-size: 16pt;
+    }
+    
+    .gallery-grid-item,
+    .gallery-masonry-item {
+      width: 100%;
+    }
+  }
+  
+  /* --------------------------------------------
+     COLOR PRESERVATION (if needed)
+     -------------------------------------------- */
+  
+  .print-color {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Preserve brand colors for specific elements */
+  .preserve-color {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* --------------------------------------------
+     UTILITIES
+     -------------------------------------------- */
+  
+  .text-left-print {
+    text-align: left;
+  }
+  
+  .text-center-print {
+    text-align: center;
+  }
+  
+  .text-right-print {
+    text-align: right;
+  }
+  
+  .bold-print {
+    font-weight: bold;
+  }
+  
+  .italic-print {
+    font-style: italic;
+  }
+}

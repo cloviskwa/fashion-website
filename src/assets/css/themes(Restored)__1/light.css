@@ -1,0 +1,384 @@
+/* ============================================
+   LIGHT THEME
+   Default light mode theme variables
+   Building on core/variables.css
+   ============================================ */
+
+:root,
+.theme-light {
+  /* --------------------------------------------
+     BACKGROUND COLORS
+     -------------------------------------------- */
+  
+  /* Page Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--neutral-100);
+  --bg-tertiary: var(--neutral-200);
+  
+  /* Surface Backgrounds */
+  --bg-surface: #ffffff;
+  --bg-surface-hover: var(--neutral-100);
+  --bg-surface-active: var(--neutral-200);
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-elevated-hover: var(--neutral-50);
+  
+  /* Card Backgrounds */
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-card-elevated: #ffffff;
+  
+  /* Input Backgrounds */
+  --bg-input: #ffffff;
+  --bg-input-hover: var(--neutral-50);
+  --bg-input-focus: #ffffff;
+  --bg-input-disabled: var(--neutral-200);
+  
+  /* Button Backgrounds */
+  --bg-button-primary: var(--primary-500);
+  --bg-button-primary-hover: var(--primary-600);
+  --bg-button-primary-active: var(--primary-700);
+  
+  --bg-button-secondary: var(--secondary-400);
+  --bg-button-secondary-hover: var(--secondary-500);
+  --bg-button-secondary-active: var(--secondary-600);
+  
+  --bg-button-ghost: transparent;
+  --bg-button-ghost-hover: var(--neutral-200);
+  --bg-button-ghost-active: var(--neutral-300);
+  
+  /* Navigation Backgrounds */
+  --bg-header: rgba(255, 255, 255, 0.98);
+  --bg-header-scrolled: rgba(255, 255, 255, 0.98);
+  --bg-dropdown: #ffffff;
+  --bg-mega-menu: #ffffff;
+  --bg-sidebar: #ffffff;
+  
+  /* Footer Backgrounds */
+  --bg-footer: var(--neutral-900);
+  --bg-footer-light: var(--neutral-100);
+  
+  /* Modal Backgrounds */
+  --bg-modal: #ffffff;
+  --bg-modal-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Status Backgrounds */
+  --bg-success: var(--success-light);
+  --bg-warning: var(--warning-light);
+  --bg-error: var(--error-light);
+  --bg-info: var(--info-light);
+  
+  /* Code Backgrounds */
+  --bg-code: var(--neutral-200);
+  --bg-code-block: var(--neutral-800);
+  
+  /* --------------------------------------------
+     TEXT COLORS
+     -------------------------------------------- */
+  
+  /* Primary Text */
+  --text-primary: var(--neutral-1100);
+  --text-secondary: var(--neutral-800);
+  --text-tertiary: var(--neutral-600);
+  --text-quaternary: var(--neutral-500);
+  
+  /* Link Text */
+  --text-link: var(--primary-600);
+  --text-link-hover: var(--primary-700);
+  --text-link-visited: var(--primary-800);
+  
+  /* Heading Text */
+  --text-heading-1: var(--neutral-1100);
+  --text-heading-2: var(--neutral-1000);
+  --text-heading-3: var(--neutral-900);
+  --text-heading-4: var(--neutral-800);
+  --text-heading-5: var(--neutral-700);
+  --text-heading-6: var(--neutral-600);
+  
+  /* Button Text */
+  --text-button-primary: #ffffff;
+  --text-button-secondary: var(--neutral-1100);
+  --text-button-ghost: var(--neutral-700);
+  --text-button-ghost-hover: var(--primary-600);
+  
+  /* Navigation Text */
+  --text-nav: var(--neutral-700);
+  --text-nav-hover: var(--primary-600);
+  --text-nav-active: var(--primary-500);
+  --text-nav-mobile: var(--neutral-900);
+  
+  /* Footer Text */
+  --text-footer: var(--neutral-300);
+  --text-footer-heading: #ffffff;
+  --text-footer-link: var(--neutral-400);
+  --text-footer-link-hover: var(--primary-400);
+  
+  /* Form Text */
+  --text-label: var(--neutral-700);
+  --text-input: var(--neutral-900);
+  --text-input-placeholder: var(--neutral-500);
+  --text-help: var(--neutral-600);
+  --text-error: var(--error);
+  --text-success: var(--success);
+  
+  /* Status Text */
+  --text-on-success: var(--success-dark);
+  --text-on-warning: var(--warning-dark);
+  --text-on-error: var(--error-dark);
+  --text-on-info: var(--info-dark);
+  
+  /* Code Text */
+  --text-code: var(--primary-700);
+  --text-code-block: var(--neutral-100);
+  
+  /* --------------------------------------------
+     BORDER COLORS
+     -------------------------------------------- */
+  
+  /* Base Borders */
+  --border-light: var(--neutral-200);
+  --border-medium: var(--neutral-300);
+  --border-heavy: var(--neutral-400);
+  
+  /* Interactive Borders */
+  --border-input: var(--neutral-300);
+  --border-input-hover: var(--neutral-500);
+  --border-input-focus: var(--primary-500);
+  --border-input-error: var(--error);
+  --border-input-success: var(--success);
+  
+  /* Card Borders */
+  --border-card: var(--neutral-200);
+  --border-card-hover: var(--primary-200);
+  
+  /* Button Borders */
+  --border-button-outline: var(--primary-500);
+  --border-button-ghost: transparent;
+  --border-button-ghost-hover: var(--neutral-300);
+  
+  /* Divider Borders */
+  --border-divider: var(--neutral-200);
+  --border-divider-heavy: var(--neutral-300);
+  
+  /* --------------------------------------------
+     SHADOW COLORS
+     -------------------------------------------- */
+  
+  /* Base Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-heavy: rgba(0, 0, 0, 0.1);
+  
+  /* Elevation Shadows */
+  --shadow-sm-color: 0 1px 2px 0 var(--shadow-color);
+  --shadow-base-color: 0 1px 3px 0 var(--shadow-color), 0 1px 2px -1px var(--shadow-color);
+  --shadow-md-color: 0 4px 6px -2px var(--shadow-color-heavy), 0 2px 4px -2px var(--shadow-color);
+  --shadow-lg-color: 0 10px 15px -3px var(--shadow-color-heavy), 0 4px 6px -4px var(--shadow-color);
+  --shadow-xl-color: 0 20px 25px -5px var(--shadow-color-heavy), 0 8px 10px -6px var(--shadow-color-heavy);
+  --shadow-2xl-color: 0 25px 50px -12px var(--shadow-color-heavy);
+  
+  /* Brand Shadows */
+  --shadow-primary-color: rgba(13, 171, 218, 0.2);
+  --shadow-primary-heavy: rgba(13, 171, 218, 0.3);
+  
+  --shadow-secondary-color: rgba(255, 183, 77, 0.2);
+  --shadow-secondary-heavy: rgba(255, 183, 77, 0.3);
+  
+  /* --------------------------------------------
+     OVERLAY COLORS
+     -------------------------------------------- */
+  
+  --overlay-light: rgba(255, 255, 255, 0.8);
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-darker: rgba(0, 0, 0, 0.8);
+  
+  --overlay-primary: rgba(13, 171, 218, 0.1);
+  --overlay-primary-hover: rgba(13, 171, 218, 0.2);
+  
+  /* --------------------------------------------
+     GRADIENT COLORS
+     -------------------------------------------- */
+  
+  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  --gradient-primary-hover: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-500));
+  --gradient-secondary-hover: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
+  
+  --gradient-accent: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  
+  --gradient-surface: linear-gradient(135deg, var(--neutral-100), var(--neutral-50));
+  --gradient-surface-hover: linear-gradient(135deg, var(--neutral-200), var(--neutral-100));
+  
+  /* --------------------------------------------
+     BACKDROP FILTERS
+     -------------------------------------------- */
+  
+  --backdrop-blur: blur(8px);
+  --backdrop-blur-heavy: blur(16px);
+  --backdrop-bg: rgba(255, 255, 255, 0.8);
+  --backdrop-bg-heavy: rgba(255, 255, 255, 0.95);
+  
+  /* --------------------------------------------
+     SCROLLBAR COLORS
+     -------------------------------------------- */
+  
+  --scrollbar-track: var(--neutral-200);
+  --scrollbar-thumb: var(--neutral-500);
+  --scrollbar-thumb-hover: var(--primary-500);
+  
+  /* --------------------------------------------
+     SELECTION COLORS
+     -------------------------------------------- */
+  
+  --selection-bg: var(--primary-500);
+  --selection-text: #ffffff;
+  
+  /* --------------------------------------------
+     PLACEHOLDER COLORS
+     -------------------------------------------- */
+  
+  --placeholder-primary: var(--neutral-300);
+  --placeholder-secondary: var(--neutral-200);
+  
+  /* --------------------------------------------
+     CHART COLORS
+     -------------------------------------------- */
+  
+  --chart-1: var(--primary-500);
+  --chart-2: var(--secondary-500);
+  --chart-3: var(--success);
+  --chart-4: var(--warning);
+  --chart-5: var(--error);
+  --chart-6: var(--info);
+  
+  /* --------------------------------------------
+     SOCIAL MEDIA COLORS
+     -------------------------------------------- */
+  
+  --facebook: #1877f2;
+  --twitter: #1da1f2;
+  --instagram: #e4405f;
+  --linkedin: #0a66c2;
+  --youtube: #ff0000;
+  --pinterest: #bd081c;
+  --whatsapp: #25d366;
+  --telegram: #0088cc;
+}
+
+/* Light theme specific component overrides */
+.theme-light {
+  /* Card specific */
+  .card {
+    background: var(--bg-card);
+    border-color: var(--border-card);
+  }
+  
+  .card:hover {
+    border-color: var(--border-card-hover);
+  }
+  
+  /* Navigation specific */
+  .header {
+    background: var(--bg-header);
+    border-bottom-color: var(--border-light);
+  }
+  
+  .header.scrolled {
+    background: var(--bg-header-scrolled);
+  }
+  
+  .dropdown-menu {
+    background: var(--bg-dropdown);
+    border-color: var(--border-light);
+  }
+  
+  /* Form specific */
+  .form-input {
+    background: var(--bg-input);
+    border-color: var(--border-input);
+    color: var(--text-input);
+  }
+  
+  .form-input:focus {
+    border-color: var(--border-input-focus);
+  }
+  
+  .form-input::placeholder {
+    color: var(--text-input-placeholder);
+  }
+  
+  /* Button specific */
+  .btn-primary {
+    background: var(--bg-button-primary);
+    color: var(--text-button-primary);
+  }
+  
+  .btn-primary:hover {
+    background: var(--bg-button-primary-hover);
+  }
+  
+  .btn-secondary {
+    background: var(--bg-button-secondary);
+    color: var(--text-button-secondary);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--bg-button-secondary-hover);
+  }
+  
+  /* Footer specific */
+  .footer {
+    background: var(--bg-footer);
+    color: var(--text-footer);
+  }
+  
+  .footer-heading {
+    color: var(--text-footer-heading);
+  }
+  
+  .footer-link {
+    color: var(--text-footer-link);
+  }
+  
+  .footer-link:hover {
+    color: var(--text-footer-link-hover);
+  }
+  
+  /* Modal specific */
+  .modal {
+    background: var(--bg-modal);
+  }
+  
+  .modal-overlay {
+    background: var(--bg-modal-overlay);
+  }
+  
+  /* Code specific */
+  code {
+    background: var(--bg-code);
+    color: var(--text-code);
+  }
+  
+  pre {
+    background: var(--bg-code-block);
+    color: var(--text-code-block);
+  }
+  
+  /* Selection */
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
