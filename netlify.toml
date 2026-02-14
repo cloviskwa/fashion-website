@@ -1,0 +1,82 @@
+# ============================================
+# LIPEK FASHION - NETLIFY CONFIGURATION
+# ============================================
+
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ============================================
+# REDIRECTS & HEADERS
+# ============================================
+
+[[redirects]]
+  from = "/*"
+  to = "/:splat/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/404"
+  to = "/404/"
+  status = 404
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=(), payment=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# ============================================
+# SPLIT TESTING
+# ============================================
+
+[split_tests]
+  # Example A/B test
+  # [split_tests.homepage]
+  #   path = "/"
+  #   [split_tests.homepage.targets]
+  #     [split_tests.homepage.targets."/index-v2.html"]
+  #       weight = 50
+
+# ============================================
+# FUNCTIONS (if needed)
+# ============================================
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# ============================================
+# FORMS
+# ============================================
+
+[forms]
+  [forms."contact"]
+    name = "Contact Form"
+    recipients = ["info@lipekfashion.com"]
+    spam_filter = true
+    honeypot = "bot-field"
+    success_url = "/contact/thank-you/"
+    error_url = "/contact/"

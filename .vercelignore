@@ -1,18 +1,34 @@
+# Dependencies
 node_modules
+package-lock.json
+yarn.lock
+
+# Source files (not needed in production)
+src/
+tools/
+config/
+tests/
+
+# Development files
 .git
 .github
+.husky
 .vscode
+.editorconfig
+.eslintrc.js
+.prettierrc
+.stylelintrc
+.env
+.env.example
+.gitignore
 README.md
 CHANGELOG.md
 LICENSE
-*.log
-.env
-.env.local
-src/
-tools/
-tests/
-*.scss
-!*.css
-*.map
-.DS_Store
-Thumbs.db
+
+# Design assets
+src/assets/images/raw/
+src/assets/images/design/
+
+# Documentation
+docs/
+*.md

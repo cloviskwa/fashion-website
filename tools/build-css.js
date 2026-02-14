@@ -1,7 +1,10 @@
-// ============================================
-// CSS BUILD SCRIPT
-// Compiles SCSS to CSS with optimizations
-// ============================================
+/**
+ * ============================================
+ * LIPEK FASHION - CSS BUILDER
+ * Compiles SCSS to CSS with autoprefixing and minification
+ * Version: 1.0.0
+ * ============================================
+ */
 
 const sass = require('sass');
 const fs = require('fs-extra');
@@ -10,24 +13,32 @@ const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
+const CONFIG = {
+  srcFile: path.join(__dirname, '../src/assets/css/main.scss'),
+  destFile: path.join(__dirname, '../public/assets/css/main.css'),
+  destDir: path.join(__dirname, '../public/assets/css'),
+};
+
+/**
+ * Build CSS
+ */
 async function buildCSS() {
   console.log('🎨 Building CSS...');
   
-  // Source and destination paths
-  const srcFile = path.join(__dirname, '../src/assets/css/main.scss');
-  const destFile = path.join(__dirname, '../public/assets/css/main.css');
-  
   try {
-    // Compile SCSS to CSS
-    const result = sass.compile(srcFile, {
+    // Ensure destination directory exists
+    await fs.ensureDir(CONFIG.destDir);
+    
+    // Compile SCSS
+    const result = sass.compile(CONFIG.srcFile, {
       style: 'expanded',
-      sourceMap: false,
       loadPaths: [
-        path.join(__dirname, '../src/assets/css')
+        path.join(__dirname, '../src/assets/css'),
+        path.join(__dirname, '../node_modules')
       ]
     });
     
-    // Run PostCSS plugins (autoprefixer, minify)
+    // Process with PostCSS
     const processed = await postcss([
       autoprefixer({
         overrideBrowserslist: ['> 1%', 'last 2 versions', 'not dead']
@@ -40,36 +51,28 @@ async function buildCSS() {
         }]
       })
     ]).process(result.css, {
-      from: srcFile,
-      to: destFile
+      from: CONFIG.srcFile,
+      to: CONFIG.destFile
     });
     
-    // Ensure destination directory exists
-    await fs.ensureDir(path.dirname(destFile));
-    
-    // Write compiled CSS
-    await fs.writeFile(destFile, processed.css);
-    
-    // Write sourcemap (optional)
-    // await fs.writeFile(destFile + '.map', processed.map);
-    
-    console.log('✅ CSS built successfully!');
-    console.log(`📁 Output: ${destFile}`);
+    // Write CSS
+    await fs.writeFile(CONFIG.destFile, processed.css);
     
     // Get file size
-    const stats = await fs.stat(destFile);
+    const stats = await fs.stat(CONFIG.destFile);
     const size = (stats.size / 1024).toFixed(2);
-    console.log(`📦 Size: ${size} KB`);
+    
+    console.log(`   ✅ CSS built: main.css (${size} KB)`);
     
   } catch (error) {
-    console.error('❌ CSS build failed:', error);
-    process.exit(1);
+    console.error('   ❌ CSS build failed:', error.message);
+    throw error;
   }
 }
 
 // Run if called directly
 if (require.main === module) {
-  buildCSS();
+  buildCSS().catch(console.error);
 }
 
 module.exports = buildCSS;

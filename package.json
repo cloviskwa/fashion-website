@@ -38,10 +38,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lipek/lipek-fashion.com.git"
+    "url": "https://github.com/cloviskwa/fashion-website.git"
   },
   "bugs": {
-    "url": "https://github.com/lipek/lipek-fashion.com/issues"
+    "url": "https://github.com/cloviskwa/fashion-website/issues"
   },
   "homepage": "https://lipekfashion.com",
   "engines": {
@@ -79,6 +79,7 @@
     "nodemon": "^2.0.22",
     "concurrently": "^8.0.1",
     "express": "^4.18.2",
+    "chalk": "^4.1.2",
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
