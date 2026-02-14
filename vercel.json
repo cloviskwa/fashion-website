@@ -1,7 +1,6 @@
 {
   "name": "lipek-fashion",
   "version": 2,
-  "scope": "lipek-fashion",
   "public": true,
   
   "buildCommand": "npm run build",
@@ -42,66 +41,96 @@
     {
       "src": "^/sw.js$",
       "dest": "/sw.js",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate",
-        "Content-Type": "application/javascript"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
     },
     {
       "src": "^/assets/(.*)$",
       "dest": "/assets/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "src": "^/images/(.*)$", 
       "dest": "/assets/images/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "src": "^/fonts/(.*)$",
       "dest": "/assets/fonts/$1", 
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "src": "^/css/(.*)$",
       "dest": "/assets/css/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "src": "^/js/(.*)$",
       "dest": "/assets/js/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "src": "^/service-worker.js$",
       "dest": "/sw.js",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "src": "^/(.*)\\.html$",
       "dest": "/$1.html",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     },
     {
       "src": "^/(.*)/$",
       "dest": "/$1/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     },
     {
       "handle": "filesystem"
@@ -325,12 +354,5 @@
     "PRIMARY_COLOR": "#0dabda",
     "SECONDARY_COLOR": "#ffb74d",
     "FORMSPREE_ENDPOINT": "@formspree_endpoint"
-  },
-  
-  "security": {
-    "headers": {
-      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
-      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.formspree.io; frame-src 'none'; object-src 'none'; upgrade-insecure-requests;"
-    }
   }
 }
